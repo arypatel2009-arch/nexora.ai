@@ -1,0 +1,40 @@
+import type { PricingPlan } from "@/lib/types";
+
+export const pricingPlansSeed: PricingPlan[] = [
+  {
+    id: "plan_starter",
+    slug: "starter",
+    name: "Starter",
+    price: "Custom",
+    billingNote: "Priced to your needs",
+    description: "For businesses ready for their first AI automation.",
+    features: ["One core automation or chatbot", "Setup and onboarding included", "Email support"],
+    highlighted: false,
+    status: "published",
+    order: 1,
+  },
+  {
+    id: "plan_growth",
+    slug: "growth",
+    name: "Growth",
+    price: "Custom",
+    billingNote: "Priced to your needs",
+    description: "For businesses automating across multiple channels.",
+    features: ["Multiple automations and chatbots", "Website or landing page included", "Priority support"],
+    highlighted: true,
+    status: "published",
+    order: 2,
+  },
+  {
+    id: "plan_scale",
+    slug: "scale",
+    name: "Scale",
+    price: "Custom",
+    billingNote: "Let's talk",
+    description: "For businesses building a full AI-powered operation.",
+    features: ["Full automation suite", "Ongoing strategy and optimization", "Dedicated support"],
+    highlighted: false,
+    status: "published",
+    order: 3,
+  },
+];

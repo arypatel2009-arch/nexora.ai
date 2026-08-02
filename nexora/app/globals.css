@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-body antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink tracking-tightest;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Visible keyboard focus everywhere — accessibility floor */
+  :focus-visible {
+    outline: 2px solid #3B6EF6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: #DCE6FF;
+    color: #0B1B33;
+  }
+}
+
+@layer utilities {
+  .container-nexora {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-premium hover:-translate-y-1;
+  }
+
+  .skeleton {
+    @apply bg-[linear-gradient(90deg,#EEF1F6_25%,#F7F9FC_37%,#EEF1F6_63%)] bg-[length:400%_100%] animate-shimmer;
+  }
+
+  .eyebrow-divider {
+    @apply relative inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wideish text-brand-500;
+  }
+  .eyebrow-divider::before {
+    content: "";
+    @apply h-px w-6 bg-accent-gold/70;
+  }
+
+  .admin-input {
+    @apply w-full rounded-xl border border-border bg-white px-3.5 py-2.5 text-sm text-ink transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-white;
+  }
+  .admin-input:hover {
+    @apply border-brand-300;
+  }
+  .admin-input:focus-visible {
+    @apply outline-none border-brand-500 ring-2 ring-brand-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
