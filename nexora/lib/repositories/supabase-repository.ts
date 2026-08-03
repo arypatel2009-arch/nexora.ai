@@ -33,7 +33,12 @@ export function createSupabaseRepository<T extends { id: string }>(
     },
 
     async update(id, patch) {
-      const { data, error } = await client.from(table).update(patch).eq("id", id).select().maybeSingle();
+      const { data, error } = await client
+  .from(table)
+  .update(patch as any)
+  .eq("id", id)
+  .select()
+  .maybeSingle();
       if (error) throw error;
       return (data as T) ?? null;
     },
